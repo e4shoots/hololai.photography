@@ -63,6 +63,24 @@
 
   <!-- Scripts -->
   <script src="config.js"></script>
+  <script>
+    // Populate navigation from config before main.js loads
+    function populateNav() {
+      const navLinks = document.getElementById('nav-links');
+      if (navLinks && typeof CONFIG !== 'undefined' && CONFIG.nav && CONFIG.nav.links) {
+        navLinks.innerHTML = CONFIG.nav.links.map(link => 
+          `<li><a href="${link.href}">${link.label}</a></li>`
+        ).join('');
+      }
+    }
+    
+    // Populate nav immediately if config is loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', populateNav);
+    } else {
+      populateNav();
+    }
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>

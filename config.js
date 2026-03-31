@@ -1,8 +1,14 @@
 /**
- * HOLOLA'I PHOTOGRAPHY — CUSTOMIZATION CONFIG
+ * HOLOLA'I PHOTOGRAPHY — COMPLETE CUSTOMIZATION CONFIG
  * 
- * Edit this file to change all text, images, colors, and content.
- * No need to touch HTML or CSS unless you want advanced changes.
+ * Edit this file to change EVERYTHING:
+ * - All text on every page
+ * - All images
+ * - All colors
+ * - All form labels
+ * - All links and CTAs
+ * 
+ * No need to touch HTML or JavaScript.
  */
 
 const CONFIG = {
@@ -28,7 +34,7 @@ const CONFIG = {
     },
   },
 
-  // ========== HERO SECTION ==========
+  // ========== HERO SECTION (Home Page) ==========
   hero: {
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/hero-main-hj9rHRFJEgWwiVkzP2xyS5.webp",
     location: "[ KAUAʻI, HAWAIʻI ]",
@@ -38,7 +44,7 @@ const CONFIG = {
     cta2: { text: "BOOK A SESSION", href: "#booking" },
   },
 
-  // ========== SERVICES SECTION ==========
+  // ========== SERVICES SECTION (Home Page) ==========
   services: [
     {
       num: "01",
@@ -57,76 +63,87 @@ const CONFIG = {
     },
   ],
 
-  // ========== GALLERY PREVIEW (Home page) ==========
-  galleryPreview: [
-    {
-      id: 1,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-couple-egvJ5h6hyizGXVEwpokLJ5.webp",
-      alt: "Couple at sunset",
-      span: 2,
-    },
-    {
-      id: 2,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-portrait-F3mM6W4cY6XskRp8zvyy6r.webp",
-      alt: "Portrait",
-      span: 1,
-    },
-    {
-      id: 3,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-landscape-irt9oobtGZ9CnBsqU9rPwf.webp",
-      alt: "Landscape",
-      span: 1,
-    },
-  ],
+  // ========== GALLERY PREVIEW (Home Page) ==========
+  galleryPreview: {
+    label: "[ Portfolio ]",
+    headline: "Featured Work",
+    items: [
+      {
+        id: 1,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-couple-egvJ5h6hyizGXVEwpokLJ5.webp",
+        alt: "Couple at sunset",
+        span: 2,
+      },
+      {
+        id: 2,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-portrait-F3mM6W4cY6XskRp8zvyy6r.webp",
+        alt: "Portrait",
+        span: 1,
+      },
+      {
+        id: 3,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-landscape-irt9oobtGZ9CnBsqU9rPwf.webp",
+        alt: "Landscape",
+        span: 1,
+      },
+    ],
+  },
 
-  // ========== GALLERY PAGE (Full gallery) ==========
-  gallery: [
-    {
-      id: 1,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-couple-egvJ5h6hyizGXVEwpokLJ5.webp",
-      alt: "Couple at sunset on Kauaʻi beach",
-      category: "Couples",
-      span: 2,
-    },
-    {
-      id: 2,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-portrait-F3mM6W4cY6XskRp8zvyy6r.webp",
-      alt: "Portrait in Kauaʻi jungle",
-      category: "Portraits",
-      span: 1,
-    },
-    {
-      id: 3,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-landscape-irt9oobtGZ9CnBsqU9rPwf.webp",
-      alt: "Nā Pali Coast aerial view",
-      category: "Landscape",
-      span: 1,
-    },
-    {
-      id: 4,
-      src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/hero-main-hj9rHRFJEgWwiVkzP2xyS5.webp",
-      alt: "Kauaʻi coastline at golden hour",
-      category: "Landscape",
-      span: 1,
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
-      alt: "Wedding ceremony on the beach",
-      category: "Events",
-      span: 1,
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=800&q=80",
-      alt: "Couple portrait in nature",
-      category: "Couples",
-      span: 1,
-    },
-  ],
+  // ========== GALLERY PAGE ==========
+  galleryPage: {
+    label: "[ Portfolio ]",
+    headline: "The Work",
+    subheadline: "Real, unfiltered, timeless.",
+    items: [
+      {
+        id: 1,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-couple-egvJ5h6hyizGXVEwpokLJ5.webp",
+        alt: "Couple at sunset on Kauaʻi beach",
+        category: "Couples",
+        span: 2,
+      },
+      {
+        id: 2,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-portrait-F3mM6W4cY6XskRp8zvyy6r.webp",
+        alt: "Portrait in Kauaʻi jungle",
+        category: "Portraits",
+        span: 1,
+      },
+      {
+        id: 3,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-landscape-irt9oobtGZ9CnBsqU9rPwf.webp",
+        alt: "Nā Pali Coast aerial view",
+        category: "Landscape",
+        span: 1,
+      },
+      {
+        id: 4,
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/hero-main-hj9rHRFJEgWwiVkzP2xyS5.webp",
+        alt: "Kauaʻi coastline at golden hour",
+        category: "Landscape",
+        span: 1,
+      },
+      {
+        id: 5,
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+        alt: "Wedding ceremony on the beach",
+        category: "Events",
+        span: 1,
+      },
+      {
+        id: 6,
+        src: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=800&q=80",
+        alt: "Couple portrait in nature",
+        category: "Couples",
+        span: 1,
+      },
+    ],
+  },
 
   // ========== ABOUT PAGE ==========
-  about: {
+  aboutPage: {
+    label: "[ The Photographer ]",
+    headline: "About",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/about-photographer-mbdwHuin2k95cdLr3g5UXR.webp",
     quote: '"I don\'t take photographs.\nI find them."',
     story: [
@@ -135,6 +152,10 @@ const CONFIG = {
       "Holola'i — meaning 'to spread out, to unfold' in Hawaiian — is my approach to photography. I believe every person, every couple, every landscape has a story that wants to unfold. My job is to be present enough to catch it.",
       "I work with individuals, couples, families, and brands who value authentic imagery over perfection. If you want something real, unfiltered, and timeless — let's make something together.",
     ],
+    cta1: { text: "Book a Session", href: "#booking" },
+    cta2: { text: "View Work", href: "#gallery" },
+    philosophyLabel: "[ Philosophy ]",
+    philosophyHeadline: "How I Work",
     philosophy: [
       {
         num: "01",
@@ -153,21 +174,17 @@ const CONFIG = {
       },
     ],
     fullBleedImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/gallery-landscape-irt9oobtGZ9CnBsqU9rPwf.webp",
+    fullBleedLabel: "[ Nā Pali Coast, Kauaʻi ]",
   },
 
   // ========== BOOKING PAGE ==========
-  booking: {
+  bookingPage: {
+    label: "[ Book a Session ]",
     headline: "Let's Work\nTogether",
-    subheadline: "Fill out the form below and I'll be in touch within 48 hours to discuss your vision and availability.",
-    sessionTypes: [
-      "Portrait Session",
-      "Couples Session",
-      "Wedding / Elopement",
-      "Family Session",
-      "Brand / Commercial",
-      "Event Coverage",
-      "Other",
-    ],
+    subheadline: "Choose your preferred date and time below. I'll confirm your session details shortly.",
+    setmoreUrl: "https://hololai.setmore.com",
+    calendarLabel: "[ Select Your Time ]",
+    sessionInfoLabel: "[ Session Info ]",
     sessionInfo: [
       { label: "Response Time", value: "Within 48 hours" },
       { label: "Location", value: "Kauaʻi, Hawaiʻi + Destination" },
@@ -175,16 +192,45 @@ const CONFIG = {
       { label: "Format", value: "High-res digital files" },
       { label: "Editing", value: "Cinematic color grade included" },
     ],
-    email: "hello@hololai.com",
   },
 
   // ========== CONTACT PAGE ==========
-  contact: {
-    email: "hello@hololai.com",
-    instagram: "@hololai",
-    instagramUrl: "https://instagram.com/hololai",
-    location: "Kauaʻi, Hawaiʻi",
-    locationDesc: "Available for destination sessions worldwide",
+  contactPage: {
+    label: "[ Get in Touch ]",
+    headline: "Say Hello",
+    formLabels: {
+      name: "Name",
+      namePlaceholder: "Your name",
+      email: "Email",
+      emailPlaceholder: "your@email.com",
+      message: "Message",
+      messagePlaceholder: "What's on your mind?",
+      submit: "Send Message",
+    },
+    connectLabel: "[ Connect ]",
+    instagram: {
+      label: "Instagram",
+      handle: "@hololai",
+      url: "https://instagram.com/hololai",
+      desc: "Follow for daily work and behind-the-scenes",
+    },
+    email: {
+      label: "Email",
+      address: "hello@hololai.com",
+      desc: "Response within 48 hours",
+    },
+    location: {
+      label: "Location",
+      name: "Kauaʻi, Hawaiʻi",
+      desc: "Available for destination sessions worldwide",
+    },
+    bookingCTA: {
+      label: "[ Prefer Booking? ]",
+      text: "For session inquiries, use the dedicated booking form for faster processing.",
+      button: "Booking Form",
+    },
+    successMessage: "Message Sent",
+    successText: "Thank you for your message. I'll get back to you as soon as possible — usually within 24–48 hours.",
   },
 
   // ========== COLORS & DESIGN ==========
@@ -202,6 +248,22 @@ const CONFIG = {
     display: "'Bebas Neue', sans-serif",
     editorial: "'Cormorant Garamond', serif",
     body: "'Space Grotesk', sans-serif",
+  },
+
+  // ========== FOOTER ==========
+  footer: {
+    title: "HOLOLA'I",
+    description: "Cinematic photography from Kauaʻi, Hawaiʻi. Specializing in portraits, couples, weddings, and landscapes.",
+    quickLinksLabel: "Quick Links",
+    quickLinks: [
+      { label: "Home", href: "#home" },
+      { label: "Gallery", href: "#gallery" },
+      { label: "About", href: "#about" },
+      { label: "Booking", href: "#booking" },
+      { label: "Contact", href: "#contact" },
+    ],
+    contactLabel: "Contact",
+    copyright: "© 2026 Holola'i Photography. All rights reserved.",
   },
 };
 

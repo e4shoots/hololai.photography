@@ -1,8 +1,8 @@
 /**
  * HOLOLA'I PHOTOGRAPHY — MAIN JAVASCRIPT
  * 
- * Handles page routing and rendering.
- * ALL content is pulled from config.js
+ * Handles page routing, rendering, and interactions.
+ * All content is pulled from config.js
  */
 
 // ========== PAGE ROUTING ==========
@@ -17,11 +17,13 @@ const PAGES = {
 
 let currentPage = PAGES.home;
 
+// Listen for hash changes
 window.addEventListener('hashchange', () => {
   const hash = window.location.hash.slice(1) || PAGES.home;
   navigateTo(hash);
 });
 
+// Navigate to page
 function navigateTo(page) {
   const validPages = Object.values(PAGES);
   if (!validPages.includes(page)) {
@@ -59,6 +61,7 @@ function renderPage(page) {
       app.innerHTML = renderHome();
   }
   
+  // Re-attach event listeners
   attachEventListeners();
 }
 
@@ -76,8 +79,8 @@ function renderHome() {
         <h1 class="hero-headline">${hero.headline}</h1>
         <p class="hero-subheadline">${hero.subheadline}</p>
         <div class="hero-ctas">
-          <a href="${hero.cta1.href}" class="btn">${hero.cta1.text}</a>
-          <a href="${hero.cta2.href}" class="btn btn-outline">${hero.cta2.text}</a>
+          <a href="#${PAGES.gallery}" class="btn">${hero.cta1.text}</a>
+          <a href="#${PAGES.booking}" class="btn btn-outline">${hero.cta2.text}</a>
         </div>
       </div>
     </section>
@@ -85,11 +88,11 @@ function renderHome() {
     <section id="gallery-preview">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${galleryPreview.label}</div>
-          <h2 class="reveal">${galleryPreview.headline}</h2>
+          <div class="label reveal">[ Portfolio ]</div>
+          <h2 class="reveal">Featured Work</h2>
         </div>
         <div class="gallery-grid">
-          ${galleryPreview.items.map((item, i) => `
+          ${galleryPreview.map((item, i) => `
             <div class="gallery-item reveal" style="aspect-ratio: ${item.span === 2 ? '16/9' : '4/3'}; grid-column: span ${item.span}; animation-delay: ${i * 60}ms;">
               <img src="${item.src}" alt="${item.alt}" loading="lazy">
             </div>
@@ -121,19 +124,19 @@ function renderHome() {
 // ========== GALLERY PAGE ==========
 
 function renderGallery() {
-  const { galleryPage } = CONFIG;
-  const categories = ['All', ...new Set(galleryPage.items.map(item => item.category))];
+  const { gallery } = CONFIG;
+  const categories = ['All', ...new Set(gallery.map(item => item.category))];
   
   return `
     <section style="padding-top: 120px;">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${galleryPage.label}</div>
-          <h2 class="reveal">${galleryPage.headline}</h2>
-          <p class="editorial reveal" style="margin-top: 1rem; color: #777;">${galleryPage.subheadline}</p>
+          <div class="label reveal">[ Portfolio ]</div>
+          <h2 class="reveal">The Work</h2>
+          <p class="editorial reveal" style="margin-top: 1rem; color: #777;">Real, unfiltered, timeless.</p>
         </div>
         
-        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; margin-top: 2rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; margin-top: 2rem; reveal">
           ${categories.map(cat => `
             <button class="category-filter" data-category="${cat}" style="background: none; border: none; border-bottom: 1px solid transparent; color: #555; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; padding-bottom: 4px; transition: all 0.3s ease;" onclick="filterGallery('${cat}')">
               ${cat}
@@ -142,7 +145,7 @@ function renderGallery() {
         </div>
 
         <div class="gallery-grid" id="gallery-container">
-          ${galleryPage.items.map((item, i) => `
+          ${gallery.map((item, i) => `
             <div class="gallery-item reveal" data-category="${item.category}" style="grid-column: span ${item.span}; animation-delay: ${(i % 6) * 60}ms;" onclick="openLightbox(${i})">
               <img src="${item.src}" alt="${item.alt}" loading="lazy">
             </div>
@@ -165,14 +168,14 @@ function renderGallery() {
 // ========== ABOUT PAGE ==========
 
 function renderAbout() {
-  const { aboutPage } = CONFIG;
+  const { about } = CONFIG;
   
   return `
     <section style="padding-top: 120px;">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${aboutPage.label}</div>
-          <h2 class="reveal">${aboutPage.headline}</h2>
+          <div class="label reveal">[ The Photographer ]</div>
+          <h2 class="reveal">About</h2>
         </div>
       </div>
     </section>
@@ -181,17 +184,17 @@ function renderAbout() {
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
           <div class="reveal">
-            <img src="${aboutPage.image}" alt="Photographer" style="width: 100%; aspect-ratio: 3/4; object-fit: cover;">
+            <img src="${about.image}" alt="Photographer" style="width: 100%; aspect-ratio: 3/4; object-fit: cover;">
           </div>
           <div class="reveal" style="animation-delay: 150ms;">
-            <h2 class="editorial" style="font-size: 1.8rem; margin-bottom: 1.5rem;">${aboutPage.quote}</h2>
+            <h2 class="editorial" style="font-size: 1.8rem; margin-bottom: 1.5rem;">${about.quote}</h2>
             <div class="rule-line"></div>
             <div style="display: flex; flex-direction: column; gap: 1rem;">
-              ${aboutPage.story.map(para => `<p style="color: #999; line-height: 1.8; font-size: 0.9rem;">${para}</p>`).join('')}
+              ${about.story.map(para => `<p style="color: #999; line-height: 1.8; font-size: 0.9rem;">${para}</p>`).join('')}
             </div>
             <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-              <a href="${aboutPage.cta1.href}" class="btn">${aboutPage.cta1.text}</a>
-              <a href="${aboutPage.cta2.href}" class="btn btn-outline">${aboutPage.cta2.text}</a>
+              <a href="#${PAGES.booking}" class="btn">Book a Session</a>
+              <a href="#${PAGES.gallery}" class="btn btn-outline">View Work</a>
             </div>
           </div>
         </div>
@@ -201,13 +204,13 @@ function renderAbout() {
     <section style="border-top: 1px solid #2A2A2A;">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${aboutPage.philosophyLabel}</div>
-          <h2 class="reveal">${aboutPage.philosophyHeadline}</h2>
+          <div class="label reveal">[ Philosophy ]</div>
+          <h2 class="reveal">How I Work</h2>
         </div>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
-          ${aboutPage.philosophy.map((item, i) => `
+          ${about.philosophy.map((item, i) => `
             <div class="reveal" style="padding: 2.5rem 0; border-bottom: 1px solid #2A2A2A; border-right: ${i < 2 ? '1px solid #2A2A2A' : 'none'}; padding-right: ${i < 2 ? '2rem' : '0'}; padding-left: ${i > 0 ? '2rem' : '0'}; animation-delay: ${i * 100}ms;">
-              <div style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #2A2A2A; line-height: 1; margin-bottom: 1rem;">${item.num}</div>
+              <div style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #2A2A2A; line height: 1; margin-bottom: 1rem;">${item.num}</div>
               <h3>${item.title}</h3>
               <p style="color: #777; font-size: 0.85rem; margin-top: 0.5rem;">${item.desc}</p>
             </div>
@@ -217,10 +220,10 @@ function renderAbout() {
     </section>
 
     <section style="height: 50vh; position: relative; overflow: hidden;">
-      <img src="${aboutPage.fullBleedImage}" alt="Landscape" style="width: 100%; height: 100%; object-fit: cover;">
+      <img src="${about.fullBleedImage}" alt="Landscape" style="width: 100%; height: 100%; object-fit: cover;">
       <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 60%);"></div>
       <div style="position: absolute; bottom: 2rem; left: 2rem;">
-        <div class="label">${aboutPage.fullBleedLabel}</div>
+        <div class="label">[ Nā Pali Coast, Kauaʻi ]</div>
       </div>
     </section>
   `;
@@ -229,38 +232,71 @@ function renderAbout() {
 // ========== BOOKING PAGE ==========
 
 function renderBooking() {
-  const { bookingPage } = CONFIG;
+  const { booking } = CONFIG;
   
   return `
     <section style="padding-top: 120px;">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${bookingPage.label}</div>
-          <h2 class="reveal">${bookingPage.headline}</h2>
-          <p class="editorial reveal" style="margin-top: 1rem; color: #777; max-width: 420px;">${bookingPage.subheadline}</p>
+          <div class="label reveal">[ Book a Session ]</div>
+          <h2 class="reveal">${booking.headline}</h2>
+          <p class="editorial reveal" style="margin-top: 1rem; color: #777; max-width: 420px;">${booking.subheadline}</p>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="reveal" style="margin-bottom: 3rem;">
-          <div class="label" style="margin-bottom: 1rem;">${bookingPage.calendarLabel}</div>
-          <div style="background: #0D0D0D; padding: 2rem; border: 1px solid #2A2A2A;">
-            <iframe src="${bookingPage.setmoreUrl}" style="width: 100%; height: 600px; border: none; border-radius: 0;"></iframe>
-          </div>
-        </div>
-
-        <div class="reveal" style="animation-delay: 150ms;">
-          <div class="label" style="margin-bottom: 1rem;">${bookingPage.sessionInfoLabel}</div>
-          <div class="rule-line"></div>
-          <div style="display: flex; flex-direction: column; gap: 0;">
-            ${bookingPage.sessionInfo.map(info => `
-              <div style="display: flex; justify-content: space-between; align-items: start; padding: 0.75rem 0; border-bottom: 1px solid #1A1A1A;">
-                <span class="label">${info.label}</span>
-                <span style="color: #999; font-size: 0.85rem; text-align: right;">${info.value}</span>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+          <div class="reveal">
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
               </div>
-            `).join('')}
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date">
+              </div>
+              <div class="form-group">
+                <label for="session">Session Type</label>
+                <select id="session" name="session" required>
+                  <option value="">Select a session type</option>
+                  ${booking.sessionTypes.map(type => `<option value="${type}">${type}</option>`).join('')}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Tell Me About Your Vision</label>
+                <textarea id="message" name="message" placeholder="Describe your ideal session..."></textarea>
+              </div>
+              <button type="submit" class="btn">Send Inquiry</button>
+            </form>
+          </div>
+
+          <div class="reveal" style="animation-delay: 150ms;">
+            <div style="margin-bottom: 2rem;">
+              <div class="label" style="margin-bottom: 1rem;">[ Session Info ]</div>
+              <div class="rule-line"></div>
+              <div style="display: flex; flex-direction: column; gap: 0;">
+                ${booking.sessionInfo.map(info => `
+                  <div style="display: flex; justify-content: space-between; align-items: start; padding: 0.75rem 0; border-bottom: 1px solid #1A1A1A;">
+                    <span class="label">${info.label}</span>
+                    <span style="color: #999; font-size: 0.85rem; text-align: right;">${info.value}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <div style="padding: 1.5rem; border: 1px solid #2A2A2A; background: #0D0D0D;">
+              <div class="label" style="margin-bottom: 0.75rem;">[ Prefer Email? ]</div>
+              <a href="mailto:${booking.email}" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #EFEFEF; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#B8A99A'" onmouseout="this.style.color='#EFEFEF'">
+                ${booking.email}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -271,14 +307,14 @@ function renderBooking() {
 // ========== CONTACT PAGE ==========
 
 function renderContact() {
-  const { contactPage } = CONFIG;
+  const { contact } = CONFIG;
   
   return `
     <section style="padding-top: 120px;">
       <div class="container">
         <div class="section-header">
-          <div class="label reveal">${contactPage.label}</div>
-          <h2 class="reveal">${contactPage.headline}</h2>
+          <div class="label reveal">[ Get in Touch ]</div>
+          <h2 class="reveal">Say Hello</h2>
         </div>
       </div>
     </section>
@@ -286,51 +322,51 @@ function renderContact() {
     <section>
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
-          <div class="reveal" id="contact-form-container">
+          <div class="reveal">
             <form id="contact-form" onsubmit="handleContactSubmit(event)">
               <div class="form-group">
-                <label for="contact-name">${contactPage.formLabels.name}</label>
-                <input type="text" id="contact-name" name="name" placeholder="${contactPage.formLabels.namePlaceholder}" required>
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Your name" required>
               </div>
               <div class="form-group">
-                <label for="contact-email">${contactPage.formLabels.email}</label>
-                <input type="email" id="contact-email" name="email" placeholder="${contactPage.formLabels.emailPlaceholder}" required>
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
               </div>
               <div class="form-group">
-                <label for="contact-message">${contactPage.formLabels.message}</label>
-                <textarea id="contact-message" name="message" placeholder="${contactPage.formLabels.messagePlaceholder}" required></textarea>
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="What's on your mind?" required></textarea>
               </div>
-              <button type="submit" class="btn">${contactPage.formLabels.submit}</button>
+              <button type="submit" class="btn">Send Message</button>
             </form>
           </div>
 
           <div class="reveal" style="animation-delay: 150ms;">
             <div style="margin-bottom: 2rem;">
-              <div class="label" style="margin-bottom: 1.5rem;">${contactPage.connectLabel}</div>
+              <div class="label" style="margin-bottom: 1.5rem;">[ Connect ]</div>
               
-              <a href="${contactPage.instagram.url}" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; text-decoration: none;">
+              <a href="${contact.instagramUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; text-decoration: none;">
                 <div style="width: 40px; height: 40px; border: 1px solid #2A2A2A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                   <span style="font-size: 1.2rem;">📷</span>
                 </div>
                 <div>
-                  <div class="label">${contactPage.instagram.label}</div>
+                  <div class="label">Instagram</div>
                   <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #EFEFEF; transition: color 0.3s ease;" onmouseover="this.style.color='#B8A99A'" onmouseout="this.style.color='#EFEFEF'">
-                    ${contactPage.instagram.handle}
+                    ${contact.instagram}
                   </div>
-                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">${contactPage.instagram.desc}</p>
+                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">Follow for daily work</p>
                 </div>
               </a>
 
-              <a href="mailto:${contactPage.email.address}" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; text-decoration: none;">
+              <a href="mailto:${contact.email}" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; text-decoration: none;">
                 <div style="width: 40px; height: 40px; border: 1px solid #2A2A2A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                   <span style="font-size: 1.2rem;">✉️</span>
                 </div>
                 <div>
-                  <div class="label">${contactPage.email.label}</div>
+                  <div class="label">Email</div>
                   <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #EFEFEF; transition: color 0.3s ease;" onmouseover="this.style.color='#B8A99A'" onmouseout="this.style.color='#EFEFEF'">
-                    ${contactPage.email.address}
+                    ${contact.email}
                   </div>
-                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">${contactPage.email.desc}</p>
+                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">Response within 48 hours</p>
                 </div>
               </a>
 
@@ -339,11 +375,11 @@ function renderContact() {
                   <span style="font-size: 1.2rem;">📍</span>
                 </div>
                 <div>
-                  <div class="label">${contactPage.location.label}</div>
+                  <div class="label">Location</div>
                   <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #EFEFEF;">
-                    ${contactPage.location.name}
+                    ${contact.location}
                   </div>
-                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">${contactPage.location.desc}</p>
+                  <p style="font-size: 0.75rem; color: #555; margin-top: 0.25rem;">${contact.locationDesc}</p>
                 </div>
               </div>
             </div>
@@ -369,6 +405,7 @@ function filterGallery(category) {
     }
   });
   
+  // Update active filter button
   document.querySelectorAll('.category-filter').forEach(btn => {
     btn.style.color = btn.dataset.category === category ? '#EFEFEF' : '#555';
     btn.style.borderBottomColor = btn.dataset.category === category ? '#B8A99A' : 'transparent';
@@ -407,30 +444,31 @@ function showLightboxImage() {
 
 // ========== FORM HANDLERS ==========
 
+function handleBookingSubmit(e) {
+  e.preventDefault();
+  alert('Thank you for your inquiry! We will get back to you within 48 hours.');
+  e.target.reset();
+}
+
 function handleContactSubmit(e) {
   e.preventDefault();
-  const { contactPage } = CONFIG;
-  const container = document.getElementById('contact-form-container');
-  container.innerHTML = `
-    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-      <div style="font-size: 2rem;">✓</div>
-      <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em;">${contactPage.successMessage}</h3>
-      <p style="color: #777; line-height: 1.8;">${contactPage.successText}</p>
-    </div>
-  `;
+  alert('Thank you for your message! We will respond soon.');
+  e.target.reset();
 }
 
 // ========== EVENT LISTENERS ==========
 
 function attachEventListeners() {
+  // Keyboard navigation for lightbox
   document.addEventListener('keydown', (e) => {
-    if (document.getElementById('lightbox') && document.getElementById('lightbox').classList.contains('active')) {
+    if (document.getElementById('lightbox').classList.contains('active')) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowRight') nextImage();
     }
   });
 
+  // Reveal animations on scroll
   const revealElements = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -449,6 +487,7 @@ function attachEventListeners() {
 document.addEventListener('DOMContentLoaded', () => {
   renderPage(PAGES.home);
   
+  // Set initial hash if not set
   if (!window.location.hash) {
     window.location.hash = PAGES.home;
   }

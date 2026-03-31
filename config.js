@@ -31,6 +31,7 @@ const CONFIG = {
     ],
     social: {
       instagram: "https://instagram.com/hololai",
+      instagram: "https://instagram.com/holo.lai",
     },
   },
 
@@ -195,6 +196,7 @@ const CONFIG = {
   },
 
   // ========== CONTACT PAGE ==========
+<<<<<<< HEAD
   contactPage: {
     label: "[ Get in Touch ]",
     headline: "Say Hello",
@@ -231,6 +233,14 @@ const CONFIG = {
     },
     successMessage: "Message Sent",
     successText: "Thank you for your message. I'll get back to you as soon as possible — usually within 24–48 hours.",
+=======
+  contact: {
+    email: "hololai.co@gmail.com",
+    instagram: "@holo.lai",
+    instagramUrl: "https://instagram.com/holo.lai",
+    location: "Kauaʻi, Hawaiʻi",
+    locationDesc: "Available for destination sessions worldwide",
+>>>>>>> b3369a4c6772906a6a64026bfa85e9d6c7c9db10
   },
 
   // ========== COLORS & DESIGN ==========

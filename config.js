@@ -30,7 +30,6 @@ const CONFIG = {
       { label: "CONTACT", href: "#contact" },
     ],
     social: {
-      instagram: "https://instagram.com/hololai",
       instagram: "https://instagram.com/holo.lai",
     },
   },

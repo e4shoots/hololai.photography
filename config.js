@@ -30,7 +30,7 @@ const CONFIG = {
 
   // ========== HERO SECTION ==========
   hero: {
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/hero-main-hj9rHRFJEgWwiVkzP2xyS5.webp",
+    image: "https://ik.imagekit.io/e4Media/homebg.JPG",
     location: "[ KAUAʻI, HAWAIʻI ]",
     headline: "CAPTURE\nMOMENTS\nTHAT MATTER",
     subheadline: "Cinematic, emotional, story-driven\nphotography.",

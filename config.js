@@ -30,13 +30,13 @@ const CONFIG = {
       { label: "CONTACT", href: "#contact" },
     ],
     social: {
-      instagram: "https://instagram.com/hololai",
+      instagram: "https://instagram.com/holo.lai",
     },
   },
 
   // ========== HERO SECTION (Home Page) ==========
   hero: {
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663499725694/kT6nWs9mAryASPRdGR9BpZ/hero-main-hj9rHRFJEgWwiVkzP2xyS5.webp",
+    image: "https://ik.imagekit.io/e4Media/homebg.JPG",
     location: "[ KAUAʻI, HAWAIʻI ]",
     headline: "CAPTURE\nMOMENTS\nTHAT MATTER",
     subheadline: "Cinematic, emotional, story-driven\nphotography.",
@@ -195,6 +195,7 @@ const CONFIG = {
   },
 
   // ========== CONTACT PAGE ==========
+<<<<<<< HEAD
   contactPage: {
     label: "[ Get in Touch ]",
     headline: "Say Hello",
@@ -231,6 +232,14 @@ const CONFIG = {
     },
     successMessage: "Message Sent",
     successText: "Thank you for your message. I'll get back to you as soon as possible — usually within 24–48 hours.",
+=======
+  contact: {
+    email: "hololai.co@gmail.com",
+    instagram: "@holo.lai",
+    instagramUrl: "https://instagram.com/holo.lai",
+    location: "Kauaʻi, Hawaiʻi",
+    locationDesc: "Available for destination sessions worldwide",
+>>>>>>> df59073ab60ab17d4ebe7a3eef56a89a04763401
   },
 
   // ========== COLORS & DESIGN ==========

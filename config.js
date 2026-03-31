@@ -24,7 +24,7 @@ const CONFIG = {
       { label: "CONTACT", href: "#contact" },
     ],
     social: {
-      instagram: "https://instagram.com/hololai",
+      instagram: "https://instagram.com/holo.lai",
     },
   },
 
@@ -180,9 +180,9 @@ const CONFIG = {
 
   // ========== CONTACT PAGE ==========
   contact: {
-    email: "hello@hololai.com",
-    instagram: "@hololai",
-    instagramUrl: "https://instagram.com/hololai",
+    email: "hololai.co@gmail.com",
+    instagram: "@holo.lai",
+    instagramUrl: "https://instagram.com/holo.lai",
     location: "Kauaʻi, Hawaiʻi",
     locationDesc: "Available for destination sessions worldwide",
   },

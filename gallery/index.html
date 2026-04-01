@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holola'i Gallery</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="favicon.ico" alt="Holola'i" class="favicon">
+      <span class="brand-name">Holola'i</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/booking">Booking</a>
+    </nav>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h1>Gallery</h1>
+    <div class="category-tabs">
+      <button class="tab-button active" data-tab="portraits">Portraits</button>
+      <button class="tab-button" data-tab="landscape">Landscape</button>
+      <button class="tab-button" data-tab="events">Events</button>
+    </div>
+    <div class="tab-content" id="portraits">
+      <p>Portrait photography captures the essence of a person or group. Replace with your images.</p>
+      <!-- Example Images -->
+      <img src="https://via.placeholder.com/300x200" alt="Portrait">
+      <img src="https://via.placeholder.com/300x200" alt="Portrait">
+    </div>
+    <div class="tab-content" id="landscape">
+      <p>Landscape photography highlights nature and scenery. Replace with your images.</p>
+      <img src="https://via.placeholder.com/300x200" alt="Landscape">
+      <img src="https://via.placeholder.com/300x200" alt="Landscape">
+    </div>
+    <div class="tab-content" id="events">
+      <p>Event photography captures special moments. Replace with your images.</p>
+      <img src="https://via.placeholder.com/300x200" alt="Event">
+      <img src="https://via.placeholder.com/300x200" alt="Event">
+    </div>
+  </section>
+
+  <script>
+    // Gallery tab switching
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        contents.forEach(c => c.style.display = 'none');
+        document.getElementById(btn.dataset.tab).style.display = 'block';
+      });
+    });
+    // Show first tab by default
+    document.getElementById('portraits').style.display = 'block';
+  </script>
+</body>
+</html>

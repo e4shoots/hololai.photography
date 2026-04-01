@@ -43,10 +43,9 @@ body {
 
 .nav-links a {
   color: #fff;
-  text-decoration: none;
+  text-decoration: underline;   /* always underlined */
   margin-left: 2rem;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
 }
 
 .nav-links a:hover {

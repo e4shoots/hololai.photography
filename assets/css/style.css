@@ -17,12 +17,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;          /* fixed so it stays at the top */
   top: 0;
   left: 0;
   padding: 1rem 5%;
-  background: rgba(0,0,0,0.0); /* transparent */
-  z-index: 100;
+  background: rgba(255, 255, 255, 0.2); /* white with 20% opacity */
+  backdrop-filter: blur(10px);          /* blur content behind header */
+  -webkit-backdrop-filter: blur(10px);  /* for Safari */
+  z-index: 1000;
 }
 
 .brand {

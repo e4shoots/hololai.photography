@@ -17,13 +17,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;          /* fixed so it stays at the top */
+  position: fixed;          
   top: 0;
   left: 0;
   padding: 1rem 5%;
-  background: rgba(255, 255, 255, 0.2); /* white with 20% opacity */
-  backdrop-filter: blur(10px);          /* blur content behind header */
-  -webkit-backdrop-filter: blur(10px);  /* for Safari */
+  background: rgba(0, 0, 0, 0.4); /* dark with 40% opacity */
+  backdrop-filter: blur(10px);     
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
 }
 

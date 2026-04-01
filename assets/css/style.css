@@ -184,3 +184,17 @@ body {
   }
 }
 
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* centers images */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+}
+

@@ -46,6 +46,13 @@ body {
   position: relative;
 }
 
+.nav-links a:link,
+.nav-links a:visited,
+.nav-links a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
 .nav-links a::after,
 .tab-button::after {
   content: "";

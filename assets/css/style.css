@@ -60,15 +60,29 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  align-items: flex-start;   /* moves content to the left */
+  padding: 0 10%;            /* adds breathing room from edge */
+
   background: url('https://via.placeholder.com/1200x800') center/cover no-repeat;
-  text-align: center;
   color: #fff;
+  text-align: left;          /* left-align text */
 }
 
 .home-tagline h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 15px rgba(255,255,255,0.5);
+  font-size: 3.5rem;   /* bigger headline */
+  max-width: 600px;    /* keeps it readable, not stretched */
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 0 6%;
+  }
+
+  .home-tagline h1 {
+    font-size: 8vw;   /* scales with screen size */
+  }
 }
 
 .kauai-link a {

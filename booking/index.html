@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holola'i Photography</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="favicon.ico" alt="Holola'i" class="favicon">
+      <span class="brand-name">Holola'i</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="tab-link" data-tab="home">Home</a>
+      <a href="#" class="tab-link" data-tab="gallery">Gallery</a>
+      <a href="#" class="tab-link" data-tab="booking">Booking</a>
+    </nav>
+  </header>
+
+  <!-- Content Sections -->
+  <main class="content">
+    <!-- Home -->
+    <section class="tab-section" id="home">
+      <div class="home-tagline">
+        <h1>Capturing Moments, One Frame at a Time</h1>
+        <p class="kauai-link"><a href="https://maps.apple.com/?q=Kauai,Hawaii" target="_blank">KAUA'I HAWAI'I</a></p>
+        <p class="copyright">&copy; 2026 Holola'i. All rights reserved.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="tab-section" id="gallery" style="display:none;">
+      <h1>Gallery</h1>
+      <div class="category-tabs">
+        <button class="tab-button active" data-tab="portraits">Portraits</button>
+        <button class="tab-button" data-tab="landscape">Landscape</button>
+        <button class="tab-button" data-tab="events">Events</button>
+      </div>
+      <div class="tab-content" id="portraits">
+        <p>Portrait photography captures the essence of a person or group.</p>
+        <img src="https://via.placeholder.com/300x200" alt="Portrait">
+      </div>
+      <div class="tab-content" id="landscape">
+        <p>Landscape photography highlights nature and scenery.</p>
+        <img src="https://via.placeholder.com/300x200" alt="Landscape">
+      </div>
+      <div class="tab-content" id="events">
+        <p>Event photography captures special moments.</p>
+        <img src="https://via.placeholder.com/300x200" alt="Event">
+      </div>
+    </section>
+
+    <!-- Booking (iframe embed) -->
+    <section class="tab-section" id="booking" style="display:none;">
+      <iframe src="https://example.com/your-booking-form" frameborder="0" class="booking-iframe"></iframe>
+    </section>
+  </main>
+
+<script>
+  // Header tab switching
+  const tabLinks = document.querySelectorAll('.tab-link');
+  const tabSections = document.querySelectorAll('.tab-section');
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.dataset.tab;
+
+      tabSections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(target).style.display = 'block';
+    });
+  });
+
+  // Gallery category switching
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      contents.forEach(c => c.style.display = 'none');
+      document.getElementById(btn.dataset.tab).style.display = 'block';
+    });
+  });
+  document.getElementById('portraits').style.display = 'block';
+</script>
+</body>
+</html>

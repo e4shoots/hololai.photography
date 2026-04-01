@@ -8,7 +8,7 @@
 /* Body */
 body {
   padding-top: 80px;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #fff;
   background-color: #111; /* dark fallback background */
@@ -17,6 +17,8 @@ body {
 /* Header */
 /* ===== HEADER ===== */
 .site-header {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 1px;
   position: fixed;
   top: 0;
   left: 0;

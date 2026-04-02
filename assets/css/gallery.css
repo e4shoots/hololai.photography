@@ -1,4 +1,5 @@
 
+
 /* =========================
    HERO
 ========================= */
@@ -67,7 +68,6 @@
   min-width: 180px;
 }
 
-/* TAB BUTTONS */
 .tab-button {
   padding: 0.7rem 1rem;
 
@@ -117,7 +117,7 @@
 }
 
 /* =========================
-   DESCRIPTION BOX
+   DESCRIPTION
 ========================= */
 
 .gallery-description {
@@ -150,7 +150,7 @@
 }
 
 /* =========================
-   GRID (FULLY RESPONSIVE)
+   GRID (RESPONSIVE)
 ========================= */
 
 .gallery-grid {
@@ -182,10 +182,9 @@
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
-/* TABLET */
 @media (max-width: 900px) {
 
   .gallery-layout {
@@ -204,11 +203,14 @@
   }
 
   .gallery-grid img {
-    height: 250px;
+    height: 240px;
   }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE (KEY CHANGE)
+========================= */
+
 @media (max-width: 600px) {
 
   .gallery-hero h2 {
@@ -219,12 +221,15 @@
     padding: 3rem 6%;
   }
 
+  /* 🔥 2 COLUMNS ON MOBILE */
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
+  /* 🔥 SMALLER IMAGES = MORE VISIBLE CONTENT */
   .gallery-grid img {
-    height: 220px;
+    height: 140px;
   }
 
   .gallery-description {

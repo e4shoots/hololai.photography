@@ -1,4 +1,5 @@
 
+
 /* =========================
    FULL SCREEN HERO
 ========================= */
@@ -37,12 +38,12 @@
   justify-content: center;
 
   text-align: center;
-  color: #fff;
 
+  color: #fff;
   padding: 0 20px;
 }
 
-/* MAIN TEXT */
+/* HERO TEXT */
 .hero-content h1 {
   font-family: 'Radley', serif;
   font-size: 3.5rem;
@@ -51,7 +52,6 @@
   margin-bottom: 1rem;
 }
 
-/* LOCATION LINK */
 .hero-content a {
   color: #fff;
   text-decoration: underline;
@@ -60,7 +60,6 @@
   letter-spacing: 1px;
 }
 
-/* COPYRIGHT */
 .hero-content .copyright {
   margin-top: 1rem;
 
@@ -69,7 +68,7 @@
 }
 
 /* =========================
-   HOME SECTIONS
+   SECTIONS
 ========================= */
 
 .home-section {
@@ -128,12 +127,119 @@
 }
 
 /* =========================
-   CTA BUTTON
+   PROCESS SECTION
+========================= */
+
+.process-section {
+  margin-top: 2rem;
+}
+
+.process-grid {
+  margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 16px;
+}
+
+/* CARD */
+.process-card {
+  padding: 1.5rem;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.25s;
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.06);
+}
+
+/* CARD TITLE */
+.process-card h3 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  margin-bottom: 0.8rem;
+
+  opacity: 0.8;
+}
+
+/* CARD TEXT */
+.process-card p {
+  font-size: 14px;
+  line-height: 1.6;
+
+  opacity: 0.85;
+}
+
+/* =========================
+   STATS BOX
+========================= */
+
+.stats-box {
+  padding: 1.5rem;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+/* STAT ROW */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.6rem 0;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* LAST ROW NO BORDER */
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+/* LEFT LABEL */
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  opacity: 0.6;
+}
+
+/* RIGHT VALUE */
+.stat-value {
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0.9;
+}
+
+/* =========================
+   CTA
 ========================= */
 
 .cta {
   margin-top: 4rem;
+
   text-align: center;
+}
+
+.cta h2 {
+  font-family: 'Radley', serif;
+  font-size: 1.8rem;
+
+  margin-bottom: 1.5rem;
 }
 
 .cta a {
@@ -159,7 +265,7 @@
 }
 
 /* =========================
-   HEADER (HOME ONLY)
+   HEADER OVERRIDE
 ========================= */
 
 .site-header {
@@ -167,10 +273,26 @@
   backdrop-filter: none;
 }
 
-/* OPTIONAL: add background after scroll */
 .site-header.scrolled {
   background: rgba(10,10,10,0.85);
   backdrop-filter: blur(18px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 2rem 10%;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer p {
+  font-size: 12px;
+  opacity: 0.5;
 }
 
 /* =========================

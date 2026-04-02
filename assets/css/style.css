@@ -191,9 +191,10 @@ body {
   column-gap: 16px;
 }
 
-/* ===== IMAGES (NATURAL FLOW) ===== */
+/* ===== FIXED IMAGE DISPLAY (IMPORTANT FIX) ===== */
 .tab-content img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
 
   margin-bottom: 16px;

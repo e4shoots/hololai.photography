@@ -181,30 +181,32 @@ body {
   color: #000;
 }
 
-/* ===== TAB CONTENT (FIXED LAYOUT) ===== */
+/* ===== TAB CONTENT (MASONRY COLLAGE) ===== */
 .tab-content {
   display: none;
 }
 
 .tab-content.active {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+  column-count: 3;
+  column-gap: 16px;
 }
 
-/* ===== FIXED IMAGE SIZE ===== */
+/* ===== IMAGES (NATURAL FLOW) ===== */
 .tab-content img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+
+  margin-bottom: 16px;
   border-radius: 6px;
 
-  transition: transform 0.35s ease, opacity 0.3s ease;
+  display: block;
+  break-inside: avoid;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .tab-content img:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   opacity: 0.9;
 }
 
@@ -244,7 +246,16 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+  .tab-content.active {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .tab-content.active {
+    column-count: 1;
+  }
 
   .hero-content h1 {
     font-size: 2rem;
@@ -252,11 +263,6 @@ body {
 
   .tab-section {
     padding: 5rem 6% 3rem;
-  }
-
-  .tab-content img {
-    width: 100%;
-    height: auto;
   }
 
   .nav-links {

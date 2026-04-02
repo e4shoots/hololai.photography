@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Holola'i Gallery</title>
+
   <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Radley&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
-  <!-- Header -->
- <header class="site-header">
 
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
   <div class="brand">
     <a href="/" class="brand-link">
-      <img src="/images/favicon.png" alt="Holola'i" class="favicon">
+      <img src="/images/favicon.png" class="favicon" alt="">
       <span class="brand-name">Holola'i</span>
     </a>
   </div>
@@ -24,58 +28,90 @@
     <a href="/gallery">GALLERY</a>
     <a href="/booking">BOOKING</a>
   </nav>
-
 </header>
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h1>Gallery</h1>
-    <div class="category-tabs">
-      <button class="tab-button active" data-tab="portraits">Portraits</button>
-      <button class="tab-button" data-tab="landscape">Landscape</button>
-      <button class="tab-button" data-tab="events">Events</button>
-    </div>
-    <div class="tab-content" id="portraits">
-      <h3>DESCRIPTION</h3>
-      <p>Portrait photography captures the essence of a person or group. Replace with your images.</p>
-      <!-- Example Images -->
-      <div class="gallery-grid">
-       <img src="https://ik.imagekit.io/e4Media/hololai.photography/DSC_111.jpg?tr=w-300,h-200,q-70,fo-auto" alt="Portrait">
-       <img src="https://via.placeholder.com/300x200" alt="Portrait">
-      </div>
-    </div>
-    <div class="tab-content" id="landscape">
-      <h3>DESCRIPTION</h3>
-      <p>Landscape photography highlights nature and scenery. Replace with your images.</p>
-      <div class="gallery-grid">
-       <img src="https://ik.imagekit.io/e4Media/hololai.photography/DSC_111.jpg?tr=w-1000,q-70,f-auto" alt="Landscape">
-       <img src="https://via.placeholder.com/300x200" alt="Landscape">
-      </div>
-    </div>
-    <div class="tab-content" id="events">
-      <h3>DESCRIPTION</h3>
-      <p>Event photography captures special moments. Replace with your images.</p>
-      <div class="gallery-grid">
-       <img src="https://via.placeholder.com/300x200" alt="Event">
-       <img src="https://via.placeholder.com/300x200" alt="Event">
-      </div>
-   </div>
-  </section>
+<!-- HERO -->
+<section class="gallery-hero">
+  <h2>Gallery</h2>
+</section>
 
-  <script>
-    // Gallery tab switching
-    const buttons = document.querySelectorAll('.tab-button');
-    const contents = document.querySelectorAll('.tab-content');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        contents.forEach(c => c.style.display = 'none');
-        document.getElementById(btn.dataset.tab).style.display = 'block';
-      });
+<!-- GALLERY -->
+<section class="tab-section">
+
+  <!-- TABS -->
+  <div class="category-tabs">
+    <button class="tab-button active" data-tab="portraits">Portraits</button>
+    <button class="tab-button" data-tab="landscape">Landscape</button>
+    <button class="tab-button" data-tab="events">Events</button>
+  </div>
+
+  <!-- PORTRAITS -->
+  <div class="tab-content" id="portraits">
+
+    <div class="gallery-description">
+      <h3>PORTRAITS</h3>
+      <p>Portrait photography captures the essence of a person, focusing on expression, lighting, and personality.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://ik.imagekit.io/e4Media/hololai.photography/DSC_111.jpg?tr=w-800,q-80" alt="">
+      <img src="https://via.placeholder.com/800x600" alt="">
+    </div>
+
+  </div>
+
+  <!-- LANDSCAPE -->
+  <div class="tab-content" id="landscape">
+
+    <div class="gallery-description">
+      <h3>LANDSCAPE</h3>
+      <p>Landscape photography highlights the natural beauty of environments, capturing light, color, and depth.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://ik.imagekit.io/e4Media/hololai.photography/DSC_111.jpg?tr=w-1000,q-80" alt="">
+      <img src="https://via.placeholder.com/800x600" alt="">
+    </div>
+
+  </div>
+
+  <!-- EVENTS -->
+  <div class="tab-content" id="events">
+
+    <div class="gallery-description">
+      <h3>EVENTS</h3>
+      <p>Event photography captures special moments as they happen, preserving memories in a natural and candid way.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://via.placeholder.com/800x600" alt="">
+      <img src="https://via.placeholder.com/800x600" alt="">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCRIPT -->
+<script>
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      contents.forEach(c => c.style.display = 'none');
+
+      document.getElementById(btn.dataset.tab).style.display = 'block';
     });
-    // Show first tab by default
-    document.getElementById('portraits').style.display = 'block';
-  </script>
+  });
+
+  // Default tab
+  document.getElementById('portraits').style.display = 'block';
+</script>
+
 </body>
 </html>

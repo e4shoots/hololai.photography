@@ -1,6 +1,6 @@
 
 /* =========================
-   GALLERY HERO
+   HERO
 ========================= */
 
 .gallery-hero {
@@ -18,7 +18,6 @@
   position: relative;
 }
 
-/* DARK OVERLAY */
 .gallery-hero::before {
   content: "";
   position: absolute;
@@ -35,6 +34,7 @@
   font-size: 3rem;
 
   letter-spacing: 2px;
+  text-align: center;
 }
 
 /* =========================
@@ -47,14 +47,15 @@
   margin: auto;
 }
 
-/* FLEX LAYOUT (SIDEBAR + CONTENT) */
+/* DESKTOP LAYOUT */
 .gallery-layout {
   display: flex;
   gap: 40px;
+  align-items: flex-start;
 }
 
 /* =========================
-   LEFT SIDEBAR (TABS)
+   SIDEBAR (TABS)
 ========================= */
 
 .gallery-sidebar {
@@ -66,7 +67,7 @@
   min-width: 180px;
 }
 
-/* BUTTONS */
+/* TAB BUTTONS */
 .tab-button {
   padding: 0.7rem 1rem;
 
@@ -94,19 +95,21 @@
 }
 
 /* =========================
-   RIGHT CONTENT
+   CONTENT AREA
 ========================= */
 
 .gallery-content {
   flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* =========================
-   TAB CONTENT
-========================= */
-
+/* TAB CONTENT */
 .tab-content {
   display: none;
+  width: 100%;
 }
 
 .tab-content.active {
@@ -123,7 +126,6 @@
   padding: 1.5rem;
 
   background: rgba(255,255,255,0.03);
-
   border: 1px solid rgba(255,255,255,0.1);
 
   backdrop-filter: blur(10px);
@@ -137,7 +139,6 @@
   text-transform: uppercase;
 
   opacity: 0.6;
-
   margin-bottom: 0.5rem;
 }
 
@@ -149,18 +150,18 @@
 }
 
 /* =========================
-   IMAGE GRID (CENTERED + EXPAND)
+   GRID (FULLY RESPONSIVE)
 ========================= */
 
 .gallery-grid {
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
   gap: 16px;
 
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* IMAGES */
@@ -169,6 +170,8 @@
   height: 300px;
 
   object-fit: cover;
+
+  display: block;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -179,27 +182,12 @@
 }
 
 /* =========================
-   CENTER EXPANSION BEHAVIOR
-========================= */
-
-/* Forces grid to stay centered instead of left aligning */
-.gallery-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Keeps grid from sticking left */
-.gallery-grid {
-  width: 100%;
-  max-width: 1000px;
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
+/* TABLET */
 @media (max-width: 900px) {
+
   .gallery-layout {
     flex-direction: column;
   }
@@ -210,12 +198,19 @@
     justify-content: center;
   }
 
+  .tab-button {
+    flex: 1;
+    text-align: center;
+  }
+
   .gallery-grid img {
     height: 250px;
   }
 }
 
+/* MOBILE */
 @media (max-width: 600px) {
+
   .gallery-hero h2 {
     font-size: 2rem;
   }
@@ -224,7 +219,15 @@
     padding: 3rem 6%;
   }
 
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-grid img {
     height: 220px;
+  }
+
+  .gallery-description {
+    padding: 1rem;
   }
 }

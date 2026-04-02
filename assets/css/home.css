@@ -3,11 +3,11 @@
    FULL SCREEN HERO
 ========================= */
 
-.hero-full {
+.hero {
   width: 100%;
   height: 100vh;
 
-  background-image: url('/images/home-hero.jpg');
+  background-image: url('/images/homebg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,35 +15,57 @@
   position: relative;
 }
 
-.hero-overlay {
+/* DARK OVERLAY */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
 
-  background: rgba(0,0,0,0.45);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0,0,0,0.5);
 }
 
+/* CENTER CONTENT */
 .hero-content {
+  position: relative;
+  z-index: 1;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
   color: #fff;
 
   padding: 0 20px;
 }
 
+/* MAIN TEXT */
 .hero-content h1 {
   font-family: 'Radley', serif;
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   letter-spacing: 2px;
 
   margin-bottom: 1rem;
 }
 
-.hero-content p {
+/* LOCATION LINK */
+.hero-content a {
+  color: #fff;
+  text-decoration: underline;
+
   font-size: 14px;
-  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+/* COPYRIGHT */
+.hero-content .copyright {
+  margin-top: 1rem;
+
+  font-size: 12px;
+  opacity: 0.6;
 }
 
 /* =========================
@@ -106,12 +128,11 @@
 }
 
 /* =========================
-   CTA SECTION
+   CTA BUTTON
 ========================= */
 
 .cta {
   margin-top: 4rem;
-
   text-align: center;
 }
 
@@ -126,9 +147,8 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  text-decoration: none;
-
   color: #fff;
+  text-decoration: none;
 
   transition: 0.25s;
 }
@@ -139,7 +159,7 @@
 }
 
 /* =========================
-   HEADER (HOME OVERRIDE)
+   HEADER (HOME ONLY)
 ========================= */
 
 .site-header {
@@ -147,7 +167,7 @@
   backdrop-filter: none;
 }
 
-/* Optional scroll effect */
+/* OPTIONAL: add background after scroll */
 .site-header.scrolled {
   background: rgba(10,10,10,0.85);
   backdrop-filter: blur(18px);

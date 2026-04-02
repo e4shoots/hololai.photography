@@ -141,26 +141,73 @@ body {
   opacity: 0.5;
 }
 
+/* ===== GALLERY HERO (BACKGROUND + TITLE) ===== */
+.gallery-hero {
+  position: relative;
+
+  height: 40vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background-image: url('/images/bghome.jpg');
+  background-size: cover;
+  background-position: center;
+
+  margin-bottom: 3rem;
+}
+
+.gallery-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.gallery-hero h2 {
+  position: relative;
+  z-index: 1;
+
+  font-family: 'Radley', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
 /* ===== GALLERY SECTION ===== */
 .tab-section {
-  padding: 6rem 10% 4rem;
+  padding: 4rem 10% 4rem;
   max-width: 1400px;
   margin: auto;
 }
 
-/* ===== TAB BUTTONS ===== */
+/* ===== TAB BUTTONS (MODERN CARD STYLE) ===== */
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  justify-content: center;
+
+  margin-bottom: 3rem;
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .tab-button {
-  padding: 0.6rem 1.2rem;
-  border: none;
+  padding: 0.7rem 1.4rem;
 
-  background: #1a1a1a;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.04);
   color: #fff;
 
   font-size: 12px;
@@ -168,20 +215,25 @@ body {
   text-transform: uppercase;
 
   cursor: pointer;
-  border-radius: 4px;
+
   transition: 0.25s;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .tab-button:hover {
-  background: #2a2a2a;
+  background: rgba(255,255,255,0.08);
 }
 
 .tab-button.active {
   background: #fff;
   color: #000;
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
 
-/* ===== TAB CONTENT (MASONRY COLLAGE) ===== */
+/* ===== TAB CONTENT (MASONRY) ===== */
 .tab-content {
   display: none;
 }
@@ -189,9 +241,10 @@ body {
 .tab-content.active {
   column-count: 3;
   column-gap: 16px;
+  column-fill: balance;
 }
 
-/* ===== FIXED IMAGE DISPLAY (IMPORTANT FIX) ===== */
+/* ===== IMAGES ===== */
 .tab-content img {
   width: auto;
   max-width: 100%;
@@ -228,6 +281,7 @@ body {
 .footer {
   padding: 2rem 10%;
   text-align: center;
+
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -262,8 +316,12 @@ body {
     font-size: 2rem;
   }
 
+  .gallery-hero h2 {
+    font-size: 2rem;
+  }
+
   .tab-section {
-    padding: 5rem 6% 3rem;
+    padding: 3rem 6% 3rem;
   }
 
   .nav-links {

@@ -1,79 +1,76 @@
+
 /* =========================
-   GLOBAL.CSS
-   (DO NOT CHANGE DESIGN)
+   RESET / BASE
 ========================= */
 
-/* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Radley&display=swap');
-
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
-/* BASE */
 body {
   font-family: 'Inter', sans-serif;
   background: #0a0a0a;
-  color: #eaeaea;
+  color: #fff;
 
-  line-height: 1.6;
-
-  -webkit-font-smoothing: antialiased;
-
-  padding-top: 80px;
-
-  overflow-x: hidden;
+  line-height: 1.5;
 }
 
-/* HEADER */
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   HEADER (GLOBAL)
+========================= */
+
 .site-header {
   position: fixed;
   top: 0;
-  left: 0;
-
   width: 100%;
-  height: 80px;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  padding: 0 8%;
+  padding: 20px 5%;
+
+  z-index: 1000;
 
   background: rgba(10,10,10,0.85);
   backdrop-filter: blur(18px);
 
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-
-  z-index: 1000;
+  transition: 0.3s ease;
 }
 
+/* BRAND */
 .brand-link {
   display: flex;
   align-items: center;
   gap: 10px;
-
-  text-decoration: none;
 }
 
 .favicon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
 }
 
 .brand-name {
   font-family: 'Radley', serif;
   font-size: 18px;
-  color: #fff;
+  letter-spacing: 1px;
 }
 
+/* NAV */
 .nav-links {
   display: flex;
   gap: 2.5rem;
@@ -85,20 +82,44 @@ body {
   text-transform: uppercase;
 
   color: #fff;
-  text-decoration: none;
 
-  opacity: 0.7;
-  transition: 0.25s;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HOVER UNDERLINE EFFECT */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 1px;
+
+  background: #fff;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER (GLOBAL)
+========================= */
+
 .footer {
-  padding: 2rem 10%;
+  padding: 2rem 5%;
+
   text-align: center;
+
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -107,13 +128,51 @@ body {
   opacity: 0.5;
 }
 
-/* SCROLLBAR */
-::-webkit-scrollbar {
-  width: 6px;
+/* =========================
+   UTILITIES
+========================= */
+
+/* Center container */
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 5%;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 3px;
+/* Section spacing helper */
+.section {
+  padding: 5rem 0;
 }
 
+/* =========================
+   SCROLL HEADER (OPTIONAL JS USE)
+========================= */
+
+.site-header.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(20px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 15px 5%;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

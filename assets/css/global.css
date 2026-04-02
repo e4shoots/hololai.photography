@@ -1,59 +1,119 @@
+/* =========================
+   GLOBAL.CSS
+   (DO NOT CHANGE DESIGN)
+========================= */
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Radley&display=swap');
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
+/* BASE */
 body {
-  background: #0d0d0d;
-  color: #ffffff;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
+  background: #0a0a0a;
+  color: #eaeaea;
 
-a {
-  text-decoration: none;
-  color: inherit;
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+
+  padding-top: 80px;
+
+  overflow-x: hidden;
 }
 
 /* HEADER */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-  padding: 20px 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8%;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  z-index: 1000;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  text-decoration: none;
 }
 
 .favicon {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
 
 .brand-name {
   font-family: 'Radley', serif;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
 }
 
 .nav-links a {
-  margin-left: 25px;
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
+
+  color: #fff;
+  text-decoration: none;
+
   opacity: 0.7;
-  transition: 0.3s;
+  transition: 0.25s;
 }
 
 .nav-links a:hover {
   opacity: 1;
 }
 
-/* SCROLLBAR CLEAN */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+/* FOOTER */
+.footer {
+  padding: 2rem 10%;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
+
+.footer p {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+

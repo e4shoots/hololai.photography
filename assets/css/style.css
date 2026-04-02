@@ -5,14 +5,11 @@
   box-sizing: border-box;
 }
 
-/* ===== FONTS ===== */
+/* ===== BODY ===== */
 body {
   font-family: 'Inter', sans-serif;
   background: #0a0a0a;
   color: #eaeaea;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  padding-top: 80px;
 }
 
 /* ===== HEADER ===== */
@@ -30,8 +27,12 @@ body {
   background: rgba(10,10,10,0.6);
   backdrop-filter: blur(18px);
 
-  border-bottom: 1px solid rgba(255,255,255,0.05);
   z-index: 1000;
+}
+
+/* push content down */
+body {
+  padding-top: 80px;
 }
 
 /* ===== BRAND ===== */
@@ -49,9 +50,8 @@ body {
 
 .brand-name {
   font-family: 'Radley', serif;
-  font-size: 18px;
-  letter-spacing: 1px;
   color: #fff;
+  font-size: 18px;
 }
 
 /* ===== NAV ===== */
@@ -64,9 +64,10 @@ body {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-decoration: none;
 
   color: #fff;
+  text-decoration: none;
+
   opacity: 0.7;
   transition: 0.3s;
 }
@@ -75,187 +76,57 @@ body {
   opacity: 1;
 }
 
-/* underline hover */
-.nav-links a::after {
-  content: "";
-  display: block;
-  height: 1px;
-  width: 0%;
-  background: #fff;
-  transition: 0.3s;
-  margin-top: 4px;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* ===== HOME ===== */
-.home {
-  height: 100vh;
+/* ===== HERO ===== */
+.hero {
+  height: calc(100vh - 80px);
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   text-align: center;
+
+  background-image: url('/images/your-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+/* dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+/* text */
+.hero-content {
+  position: relative;
+  z-index: 1;
   padding: 0 10%;
 }
 
-/* ===== TAGLINE ===== */
-.home-tagline h1 {
+.hero-content h1 {
   font-family: 'Radley', serif;
   font-size: 3rem;
-  font-weight: 400;
   margin-bottom: 1.5rem;
 }
 
-.home-tagline p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* Kauai link */
-.kauai-link a {
+.hero-content a {
   color: #fff;
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,0.3);
-  transition: 0.3s;
 }
 
-.kauai-link a:hover {
+.hero-content a:hover {
   border-bottom: 1px solid #fff;
 }
 
-/* copyright */
 .copyright {
   margin-top: 1.5rem;
   font-size: 12px;
   opacity: 0.5;
-}
-
-/* ===== GALLERY SECTION ===== */
-.tab-section {
-  padding: 8rem 10% 4rem;
-  max-width: 1400px;
-  margin: auto;
-}
-
-/* ===== TABS ===== */
-.category-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  margin-bottom: 2.5rem;
-}
-
-.tab-button {
-  padding: 0.5rem 1rem;
-  border: none;
-
-  background: #1a1a1a;
-  color: #fff;
-
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  transition: 0.25s;
-  border-radius: 4px;
-}
-
-.tab-button:hover {
-  background: #2a2a2a;
-}
-
-.tab-button.active {
-  background: #fff;
-  color: #000;
-}
-
-/* ===== TAB CONTENT FIX ===== */
-.tab-content {
-  display: none; /* hides ALL tabs by default */
-}
-
-.tab-content.active {
-  display: grid;
-}
-
-/* ===== GALLERY GRID ===== */
-.tab-content {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-/* ===== IMAGES ===== */
-.tab-content img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-
-  border-radius: 6px;
-
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-
-.tab-content img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-/* ===== BOOKING ===== */
-.booking-iframe {
-  width: 100%;
-  height: 80vh;
-
-  border: none;
-  border-radius: 8px;
-
-  box-shadow: 0 0 25px rgba(255,255,255,0.08);
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  padding: 2rem 10%;
-  text-align: center;
-
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer p {
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 3px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-
-  .home-tagline h1 {
-    font-size: 2rem;
-  }
-
-  .tab-section {
-    padding: 6rem 6% 3rem;
-  }
-
-  .tab-content img {
-    height: 240px;
-  }
-
-  .nav-links {
-    gap: 1.5rem;
-  }
 }

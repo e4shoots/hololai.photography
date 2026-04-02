@@ -1,4 +1,7 @@
-
+/*==========================
+assets/css/HOME.CSS
+HOME CSS
+========================= */
 
 /* =========================
    FULL SCREEN HERO
@@ -264,19 +267,6 @@
   color: #000;
 }
 
-/* =========================
-   HEADER OVERRIDE
-========================= */
-
-.site-header {
-  background: transparent;
-  backdrop-filter: none;
-}
-
-.site-header.scrolled {
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(18px);
-}
 
 /* =========================
    FOOTER

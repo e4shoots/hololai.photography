@@ -1,10 +1,6 @@
-/*==========================
-assets/css/HOME.CSS
-HOME CSS
-========================= */
 
 /* =========================
-   FULL SCREEN HERO
+   HERO
 ========================= */
 
 .hero {
@@ -28,7 +24,7 @@ HOME CSS
   background: rgba(0,0,0,0.5);
 }
 
-/* CENTER CONTENT */
+/* HERO CONTENT */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -36,7 +32,6 @@ HOME CSS
   height: 100%;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -46,28 +41,10 @@ HOME CSS
   padding: 0 20px;
 }
 
-/* HERO TEXT */
 .hero-content h1 {
   font-family: 'Radley', serif;
   font-size: 3.5rem;
   letter-spacing: 2px;
-
-  margin-bottom: 1rem;
-}
-
-.hero-content a {
-  color: #fff;
-  text-decoration: underline;
-
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.hero-content .copyright {
-  margin-top: 1rem;
-
-  font-size: 12px;
-  opacity: 0.6;
 }
 
 /* =========================
@@ -75,35 +52,32 @@ HOME CSS
 ========================= */
 
 .home-section {
-  padding: 5rem 10%;
+  padding: 5rem 5%;
   max-width: 1400px;
   margin: auto;
 }
 
-/* TEXT BLOCK */
+/* TEXT */
 .home-text {
   max-width: 700px;
   margin: auto;
-
   text-align: center;
 }
 
 .home-text h2 {
   font-family: 'Radley', serif;
   font-size: 2rem;
-
   margin-bottom: 1rem;
 }
 
 .home-text p {
   font-size: 14px;
   line-height: 1.7;
-
   opacity: 0.85;
 }
 
 /* =========================
-   IMAGE GRID
+   FEATURED GRID
 ========================= */
 
 .home-grid {
@@ -117,7 +91,7 @@ HOME CSS
 
 .home-grid img {
   width: 100%;
-  display: block;
+  height: 300px;
 
   object-fit: cover;
 
@@ -127,6 +101,44 @@ HOME CSS
 .home-grid img:hover {
   transform: scale(1.03);
   opacity: 0.9;
+}
+
+/* =========================
+   CTA (VIEW GALLERY)
+========================= */
+
+.cta {
+  margin-top: 3rem;
+
+  text-align: center;
+}
+
+.cta-text {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+
+  padding: 12px 28px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #fff;
+  color: #000;
 }
 
 /* =========================
@@ -206,12 +218,12 @@ HOME CSS
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* LAST ROW NO BORDER */
+/* REMOVE LAST BORDER */
 .stat-row:last-child {
   border-bottom: none;
 }
 
-/* LEFT LABEL */
+/* LABEL */
 .stat-label {
   font-size: 12px;
   letter-spacing: 1px;
@@ -220,7 +232,7 @@ HOME CSS
   opacity: 0.6;
 }
 
-/* RIGHT VALUE */
+/* VALUE */
 .stat-value {
   font-size: 14px;
   font-weight: 500;
@@ -229,60 +241,13 @@ HOME CSS
 }
 
 /* =========================
-   CTA
+   FINAL CTA
 ========================= */
-
-.cta {
-  margin-top: 4rem;
-
-  text-align: center;
-}
 
 .cta h2 {
   font-family: 'Radley', serif;
   font-size: 1.8rem;
-
   margin-bottom: 1.5rem;
-}
-
-.cta a {
-  display: inline-block;
-
-  padding: 12px 24px;
-
-  border: 1px solid rgba(255,255,255,0.2);
-
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: #fff;
-  text-decoration: none;
-
-  transition: 0.25s;
-}
-
-.cta a:hover {
-  background: #fff;
-  color: #000;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-  padding: 2rem 10%;
-
-  text-align: center;
-
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer p {
-  font-size: 12px;
-  opacity: 0.5;
 }
 
 /* =========================
@@ -302,5 +267,9 @@ HOME CSS
 
   .home-section {
     padding: 3rem 6%;
+  }
+
+  .home-grid img {
+    height: 220px;
   }
 }

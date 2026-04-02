@@ -256,3 +256,37 @@ body {
     gap: 1.5rem;
   }
 }
+
+/* =========================
+   BOOKING PAGE FIX (SEAMLESS)
+========================= */
+
+/* Push content below fixed header */
+.booking {
+  position: absolute;
+  top: 80px; /* match your header height */
+  left: 0;
+
+  width: 100%;
+  height: calc(100vh - 80px);
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+}
+
+/* Fullscreen iframe */
+.booking iframe {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  display: block;
+}
+
+/* OPTIONAL: remove scrollbars completely */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}

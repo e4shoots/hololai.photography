@@ -10,11 +10,11 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
-
+ <!-- Header stays the same (HOME / GALLERY / BOOKING) -->
+<header class="site-header">
   <div class="brand">
     <a href="/" class="brand-link">
-      <img src="/images/favicon.png" alt="Holola'i" class="favicon">
+      <img src="/images/favicon.png" class="favicon">
       <span class="brand-name">Holola'i</span>
     </a>
   </div>
@@ -24,14 +24,12 @@
     <a href="/gallery">GALLERY</a>
     <a href="/booking">BOOKING</a>
   </nav>
-
 </header>
 
-    <!-- Booking (iframe embed) -->
-    <section class="tab-section" id="booking" style="display:none;">
-      <iframe src="https://hololai.setmore.com" frameborder="0" class="booking-iframe"></iframe>
-    </section>
-  </main>
+<!-- Booking ONLY -->
+<section class="booking">
+  <iframe src="https://hololai.setmore.com"></iframe>
+</section>
 
 <script>
   // Header tab switching

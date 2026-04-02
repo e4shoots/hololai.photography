@@ -12,6 +12,7 @@ body {
   color: #eaeaea;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  padding-top: 80px;
 }
 
 /* ===== HEADER ===== */

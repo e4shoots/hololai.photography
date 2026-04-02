@@ -1,5 +1,6 @@
+
 /* ===== FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Radley&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Radley&display=swap');
 
 /* ===== RESET ===== */
 * {
@@ -17,10 +18,13 @@ body {
   font-family: 'Inter', sans-serif;
   background: #0a0a0a;
   color: #eaeaea;
+
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
 
   padding-top: 80px;
+
   overflow-x: hidden;
 }
 
@@ -47,11 +51,11 @@ body {
   z-index: 1000;
 }
 
-/* ===== BRAND ===== */
 .brand-link {
   display: flex;
   align-items: center;
   gap: 10px;
+
   text-decoration: none;
 }
 
@@ -66,7 +70,6 @@ body {
   color: #fff;
 }
 
-/* ===== NAV ===== */
 .nav-links {
   display: flex;
   gap: 2.5rem;
@@ -89,81 +92,25 @@ body {
 }
 
 /* ===== HERO ===== */
-.hero {
-  min-height: calc(100vh - 80px);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  background-image: url('/images/bghome.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 0 10%;
-}
-
-.hero-content h1 {
-  font-family: 'Radley', serif;
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-content a {
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
-
-.hero-content a:hover {
-  border-bottom: 1px solid #fff;
-}
-
-.copyright {
-  margin-top: 1.5rem;
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-/* ===== GALLERY HERO (BACKGROUND TITLE) ===== */
 .gallery-hero {
-  position: relative;
-
-  height: 40vh;
+  height: 45vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  text-align: center;
-
   background-image: url('/images/bghome.jpg');
   background-size: cover;
   background-position: center;
 
-  margin-bottom: 3rem;
+  position: relative;
 }
 
 .gallery-hero::before {
   content: "";
   position: absolute;
   inset: 0;
+
   background: rgba(0,0,0,0.5);
 }
 
@@ -173,6 +120,7 @@ body {
 
   font-family: 'Radley', serif;
   font-size: 3rem;
+
   letter-spacing: 2px;
 }
 
@@ -183,7 +131,7 @@ body {
   margin: auto;
 }
 
-/* ===== TAB BAR (TOP) ===== */
+/* ===== TABS ===== */
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -191,7 +139,8 @@ body {
 
   justify-content: center;
 
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+
   padding: 1rem;
 
   border-radius: 12px;
@@ -202,11 +151,9 @@ body {
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* ===== TAB BUTTONS ===== */
 .tab-button {
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1.2rem;
 
-  border-radius: 6px;
   border: 1px solid rgba(255,255,255,0.08);
 
   background: rgba(255,255,255,0.04);
@@ -218,9 +165,9 @@ body {
 
   cursor: pointer;
 
-  transition: 0.25s;
+  border-radius: 6px;
 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: 0.25s;
 }
 
 .tab-button:hover {
@@ -232,38 +179,77 @@ body {
   color: #000;
 
   transform: translateY(-2px);
-
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
 
-/* ===== GRID (CENTER → OUTWARD FEEL) ===== */
+/* ===== TAB CONTENT ===== */
 .tab-content {
   display: none;
 }
 
 .tab-content.active {
+  display: block;
+}
+
+/* ===== DESCRIPTION CARD ===== */
+.gallery-description {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+
+  text-align: center;
+
+  padding: 1.5rem;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.gallery-description h3 {
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  opacity: 0.6;
+
+  margin-bottom: 0.5rem;
+}
+
+.gallery-description p {
+  font-size: 14px;
+  line-height: 1.6;
+
+  opacity: 0.85;
+}
+
+/* ===== GRID (CENTER → OUTWARD) ===== */
+.gallery-grid {
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
   gap: 16px;
 
   justify-content: center;
 }
 
 /* ===== IMAGES ===== */
-.tab-content img {
+.gallery-grid img {
   width: 100%;
-  height: auto;
+  display: block;
 
   border-radius: 6px;
 
-  display: block;
+  object-fit: cover;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.tab-content img:hover {
-  transform: scale(1.02);
+.gallery-grid img:hover {
+  transform: scale(1.03);
   opacity: 0.9;
 }
 
@@ -276,13 +262,16 @@ body {
 .booking iframe {
   width: 100%;
   height: 100%;
+
   border: none;
+
   display: block;
 }
 
 /* ===== FOOTER ===== */
 .footer {
   padding: 2rem 10%;
+
   text-align: center;
 
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -305,16 +294,12 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1000px) {
-  .tab-content.active {
+  .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .tab-content.active {
-    grid-template-columns: 1fr;
-  }
-
   .hero-content h1 {
     font-size: 2rem;
   }

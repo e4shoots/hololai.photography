@@ -5,17 +5,16 @@
   box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
+/* ===== FONTS ===== */
 body {
-  padding-top: 80px;
   font-family: 'Inter', sans-serif;
-  color: #eaeaea;
   background: #0a0a0a;
+  color: #eaeaea;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== HEADER (kept for consistency) ===== */
+/* ===== HEADER ===== */
 .site-header {
   position: fixed;
   top: 0;
@@ -45,14 +44,12 @@ body {
 .favicon {
   width: 28px;
   height: 28px;
-  opacity: 0.9;
 }
 
 .brand-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 3px;
+  font-family: 'Radley', serif;
+  font-size: 18px;
+  letter-spacing: 1px;
   color: #fff;
 }
 
@@ -63,14 +60,12 @@ body {
 }
 
 .nav-links a {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-
-  color: #eaeaea;
   text-decoration: none;
 
+  color: #fff;
   opacity: 0.7;
   transition: 0.3s;
 }
@@ -79,12 +74,12 @@ body {
   opacity: 1;
 }
 
-/* underline */
+/* underline hover */
 .nav-links a::after {
   content: "";
   display: block;
-  width: 0%;
   height: 1px;
+  width: 0%;
   background: #fff;
   transition: 0.3s;
   margin-top: 4px;
@@ -94,30 +89,80 @@ body {
   width: 100%;
 }
 
-/* ===== TAB BUTTONS ===== */
+/* ===== HOME ===== */
+.home {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 0 10%;
+}
+
+/* ===== TAGLINE ===== */
+.home-tagline h1 {
+  font-family: 'Radley', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.home-tagline p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Kauai link */
+.kauai-link a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.kauai-link a:hover {
+  border-bottom: 1px solid #fff;
+}
+
+/* copyright */
+.copyright {
+  margin-top: 1.5rem;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* ===== GALLERY SECTION ===== */
+.tab-section {
+  padding: 8rem 10% 4rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ===== TABS ===== */
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .tab-button {
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   border: none;
 
   background: #1a1a1a;
-  color: #eaeaea;
-
-  cursor: pointer;
-  border-radius: 4px;
+  color: #fff;
 
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
 
+  cursor: pointer;
   transition: 0.25s;
+  border-radius: 4px;
 }
 
 .tab-button:hover {
@@ -126,23 +171,22 @@ body {
 
 .tab-button.active {
   background: #fff;
-  color: #111;
+  color: #000;
 }
 
-/* ===== TAB CONTENT (FIX FOR YOUR ISSUE) ===== */
+/* ===== TAB CONTENT FIX ===== */
 .tab-content {
-  display: none;   /* hides ALL tabs by default */
+  display: none; /* hides ALL tabs by default */
 }
 
-/* ONLY show active tab */
 .tab-content.active {
   display: grid;
 }
 
 /* ===== GALLERY GRID ===== */
 .tab-content {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
 }
 
 /* ===== IMAGES ===== */
@@ -151,7 +195,7 @@ body {
   height: 320px;
   object-fit: cover;
 
-  border-radius: 8px;
+  border-radius: 6px;
 
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
@@ -159,13 +203,6 @@ body {
 .tab-content img:hover {
   transform: scale(1.03);
   opacity: 0.9;
-}
-
-/* ===== SECTION WRAPPER ===== */
-.tab-section {
-  padding: 8rem 12%;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 /* ===== BOOKING ===== */
@@ -189,7 +226,7 @@ body {
 
 .footer p {
   font-size: 12px;
-  color: #888;
+  opacity: 0.5;
 }
 
 /* ===== SCROLLBAR ===== */
@@ -205,8 +242,12 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
+  .home-tagline h1 {
+    font-size: 2rem;
+  }
+
   .tab-section {
-    padding: 6rem 6%;
+    padding: 6rem 6% 3rem;
   }
 
   .tab-content img {

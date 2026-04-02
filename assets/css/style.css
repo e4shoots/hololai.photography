@@ -141,7 +141,7 @@ body {
   opacity: 0.5;
 }
 
-/* ===== GALLERY HERO (BACKGROUND + TITLE) ===== */
+/* ===== GALLERY HERO (BACKGROUND TITLE) ===== */
 .gallery-hero {
   position: relative;
 
@@ -178,16 +178,17 @@ body {
 
 /* ===== GALLERY SECTION ===== */
 .tab-section {
-  padding: 4rem 10% 4rem;
+  padding: 4rem 10%;
   max-width: 1400px;
   margin: auto;
 }
 
-/* ===== TAB BUTTONS (MODERN CARD STYLE) ===== */
+/* ===== TAB BAR (TOP) ===== */
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+
   justify-content: center;
 
   margin-bottom: 3rem;
@@ -201,6 +202,7 @@ body {
   border: 1px solid rgba(255,255,255,0.06);
 }
 
+/* ===== TAB BUTTONS ===== */
 .tab-button {
   padding: 0.7rem 1.4rem;
 
@@ -230,31 +232,32 @@ body {
   color: #000;
 
   transform: translateY(-2px);
+
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
 
-/* ===== TAB CONTENT (MASONRY) ===== */
+/* ===== GRID (CENTER → OUTWARD FEEL) ===== */
 .tab-content {
   display: none;
 }
 
 .tab-content.active {
-  column-count: 3;
-  column-gap: 16px;
-  column-fill: balance;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+
+  justify-content: center;
 }
 
 /* ===== IMAGES ===== */
 .tab-content img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 
-  margin-bottom: 16px;
   border-radius: 6px;
 
   display: block;
-  break-inside: avoid;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -303,13 +306,13 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1000px) {
   .tab-content.active {
-    column-count: 2;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .tab-content.active {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 
   .hero-content h1 {
@@ -321,7 +324,7 @@ body {
   }
 
   .tab-section {
-    padding: 3rem 6% 3rem;
+    padding: 3rem 6%;
   }
 
   .nav-links {

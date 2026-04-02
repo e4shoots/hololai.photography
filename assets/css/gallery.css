@@ -1,0 +1,79 @@
+/* =========================
+}
+
+.tab-button.active {
+  background: #fff;
+  color: #000;
+}
+
+/* CONTENT */
+.gallery-content {
+  flex: 1;
+}
+
+/* DESCRIPTION */
+.gallery-description {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+
+  max-width: 700px;
+}
+
+/* GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+
+  justify-content: center;
+  align-items: start;
+}
+
+/* IMAGES */
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* TAB VISIBILITY */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+  .gallery-layout {
+    flex-direction: column;
+  }
+
+  .gallery-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    flex: 1;
+    text-align: center;
+  }
+}

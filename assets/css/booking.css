@@ -1,0 +1,44 @@
+
+/* =========================
+   BOOKING PAGE LAYOUT
+========================= */
+
+.booking {
+  width: 100%;
+  height: calc(100vh - 80px); /* account for header */
+
+  margin-top: 80px; /* push below fixed header */
+}
+
+/* =========================
+   IFRAME STYLING
+========================= */
+
+.booking iframe {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+
+  display: block;
+}
+
+/* =========================
+   HEADER (booking override if needed)
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  z-index: 1000;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}

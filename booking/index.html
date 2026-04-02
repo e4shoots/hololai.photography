@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Holola'i Photography</title>
+
 <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body>
-  <!-- Header -->
- <!-- Header stays the same (HOME / GALLERY / BOOKING) -->
+
+<!-- HEADER -->
 <header class="site-header">
   <div class="brand">
     <a href="/" class="brand-link">
@@ -26,38 +31,10 @@
   </nav>
 </header>
 
-<!-- Booking ONLY -->
+<!-- BOOKING -->
 <section class="booking">
   <iframe src="https://hololai.setmore.com"></iframe>
 </section>
 
-<script>
-  // Header tab switching
-  const tabLinks = document.querySelectorAll('.tab-link');
-  const tabSections = document.querySelectorAll('.tab-section');
-
-  tabLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = link.dataset.tab;
-
-      tabSections.forEach(sec => sec.style.display = 'none');
-      document.getElementById(target).style.display = 'block';
-    });
-  });
-
-  // Gallery category switching
-  const buttons = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      contents.forEach(c => c.style.display = 'none');
-      document.getElementById(btn.dataset.tab).style.display = 'block';
-    });
-  });
-  document.getElementById('portraits').style.display = 'block';
-</script>
 </body>
 </html>

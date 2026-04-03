@@ -1,6 +1,9 @@
+/*==========================
+   HOME.CSS
+========================= */
 
 /* =========================
-   HERO
+   FULL SCREEN HERO
 ========================= */
 
 .hero {
@@ -24,7 +27,7 @@
   background: rgba(0,0,0,0.5);
 }
 
-/* HERO CONTENT */
+/* CENTER CONTENT */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -32,6 +35,7 @@
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -41,43 +45,85 @@
   padding: 0 20px;
 }
 
+/* HERO TEXT */
 .hero-content h1 {
   font-family: 'Radley', serif;
   font-size: 3.5rem;
   letter-spacing: 2px;
+
+  margin-bottom: 1rem;
+}
+
+.hero-content a {
+  color: #fff;
+  text-decoration: underline;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.hero-content .copyright {
+  margin-top: 1rem;
+
+  font-size: 12px;
+  opacity: 0.6;
 }
 
 /* =========================
-   SECTIONS
+   SECTION TONES (NEW)
 ========================= */
 
 .home-section {
   padding: 5rem 5%;
   max-width: 1400px;
   margin: auto;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* TEXT */
+/* LIGHTER DARK */
+.section-light {
+  background: #111;
+}
+
+/* BASE DARK */
+.section-dark {
+  background: #0a0a0a;
+}
+
+/* GLASS / DEPTH */
+.section-glass {
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   TEXT BLOCK
+========================= */
+
 .home-text {
   max-width: 700px;
   margin: auto;
+
   text-align: center;
 }
 
 .home-text h2 {
   font-family: 'Radley', serif;
   font-size: 2rem;
+
   margin-bottom: 1rem;
 }
 
 .home-text p {
   font-size: 14px;
   line-height: 1.7;
+
   opacity: 0.85;
 }
 
 /* =========================
-   FEATURED GRID
+   IMAGE GRID
 ========================= */
 
 .home-grid {
@@ -91,7 +137,7 @@
 
 .home-grid img {
   width: 100%;
-  height: 300px;
+  display: block;
 
   object-fit: cover;
 
@@ -104,27 +150,26 @@
 }
 
 /* =========================
-   CTA (VIEW GALLERY)
+   VIEW GALLERY CTA (NEW)
 ========================= */
 
-.cta {
-  margin-top: 3rem;
-
+.view-gallery {
+  margin-top: 2.5rem;
   text-align: center;
 }
 
-.cta-text {
+.view-gallery p {
   font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 1.5rem;
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
 }
 
-.cta-button {
+.view-gallery a {
   display: inline-block;
 
-  padding: 12px 28px;
+  padding: 10px 20px;
 
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
 
   font-size: 12px;
   letter-spacing: 2px;
@@ -133,10 +178,10 @@
   color: #fff;
   text-decoration: none;
 
-  transition: 0.3s ease;
+  transition: 0.25s;
 }
 
-.cta-button:hover {
+.view-gallery a:hover {
   background: #fff;
   color: #000;
 }
@@ -218,12 +263,10 @@
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* REMOVE LAST BORDER */
 .stat-row:last-child {
   border-bottom: none;
 }
 
-/* LABEL */
 .stat-label {
   font-size: 12px;
   letter-spacing: 1px;
@@ -232,7 +275,6 @@
   opacity: 0.6;
 }
 
-/* VALUE */
 .stat-value {
   font-size: 14px;
   font-weight: 500;
@@ -241,13 +283,81 @@
 }
 
 /* =========================
-   FINAL CTA
+   CTA SECTION
 ========================= */
+
+.cta {
+  margin-top: 4rem;
+
+  text-align: center;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.01)
+  );
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
 .cta h2 {
   font-family: 'Radley', serif;
   font-size: 1.8rem;
+
   margin-bottom: 1.5rem;
+}
+
+.cta a {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.cta a:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   HEADER BEHAVIOR
+========================= */
+
+.site-header {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.site-header.scrolled {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(18px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 2rem 10%;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer p {
+  font-size: 12px;
+  opacity: 0.5;
 }
 
 /* =========================
@@ -261,15 +371,12 @@
 }
 
 @media (max-width: 600px) {
+
   .hero-content h1 {
     font-size: 2.2rem;
   }
 
   .home-section {
     padding: 3rem 6%;
-  }
-
-  .home-grid img {
-    height: 220px;
   }
 }

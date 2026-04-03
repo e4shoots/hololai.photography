@@ -1,13 +1,28 @@
+/*==========================
+   GALLERY.CSS (MATCH HOME STYLE)
+========================= */
+
 /* =========================
-   HERO
+   TRANSPARENT HEADER (MATCH HOME)
+========================= */
+
+.site-header {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.site-header.scrolled {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(18px);
+}
+
+/* =========================
+   HERO (FULL SCREEN LIKE HOME)
 ========================= */
 
 .gallery-hero {
-  height: 45vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
 
   background-image: url('/images/bghome.jpg');
   background-size: cover;
@@ -15,9 +30,9 @@
   background-repeat: no-repeat;
 
   position: relative;
-  padding-top: 80px; /* space for transparent header */
 }
 
+/* DARK OVERLAY */
 .gallery-hero::before {
   content: "";
   position: absolute;
@@ -26,50 +41,46 @@
   background: rgba(0,0,0,0.5);
 }
 
-.gallery-hero h2 {
+/* HERO CONTENT */
+.gallery-hero-content {
   position: relative;
   z-index: 1;
 
-  font-family: 'Radley', serif;
-  font-size: 3rem;
+  height: 100%;
 
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   text-align: center;
+  color: #fff;
+
+  padding: 0 20px;
+}
+
+.gallery-hero-content h2 {
+  font-family: 'Radley', serif;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
 }
 
 /* =========================
-   TRANSPARENT HEADER (GALLERY)
+   MAIN SECTION
 ========================= */
 
-.site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  background: transparent !important;
-  backdrop-filter: blur(6px);
-
-  z-index: 1000;
-}
-
-/* Optional scroll effect */
-.site-header.scrolled {
-  background: rgba(10,10,10,0.7) !important;
-  backdrop-filter: blur(10px);
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-
-.tab-section {
-  padding: 4rem 5%;
+.gallery-section {
+  padding: 5rem 5%;
   max-width: 1400px;
   margin: auto;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* DESKTOP LAYOUT */
+/* =========================
+   LAYOUT
+========================= */
+
 .gallery-layout {
   display: flex;
   gap: 40px;
@@ -77,13 +88,12 @@
 }
 
 /* =========================
-   SIDEBAR (TABS)
+   SIDEBAR (MATCH HOME BUTTON STYLE)
 ========================= */
 
 .gallery-sidebar {
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 
   min-width: 180px;
@@ -116,21 +126,16 @@
 }
 
 /* =========================
-   CONTENT AREA
+   CONTENT
 ========================= */
 
 .gallery-content {
   flex: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* TAB CONTENT */
 .tab-content {
   display: none;
-  width: 100%;
 }
 
 .tab-content.active {
@@ -138,61 +143,50 @@
 }
 
 /* =========================
-   DESCRIPTION BOX
+   DESCRIPTION (MATCH HOME TEXT STYLE)
 ========================= */
 
 .gallery-description {
-  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin: auto;
 
-  padding: 1.5rem;
+  text-align: center;
 
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
-
-  backdrop-filter: blur(10px);
-
-  max-width: 800px;
+  margin-bottom: 3rem;
 }
 
 .gallery-description h3 {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'Radley', serif;
+  font-size: 2rem;
 
-  opacity: 0.6;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .gallery-description p {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
 
   opacity: 0.85;
 }
 
 /* =========================
-   GRID
+   GRID (MATCH HOME GRID STYLE)
 ========================= */
 
 .gallery-grid {
-  display: grid;
+  margin-top: 3rem;
 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 16px;
-
-  width: 100%;
-  max-width: 1200px;
 }
 
-/* IMAGES */
 .gallery-grid img {
   width: 100%;
-  height: 300px;
+  display: block;
 
   object-fit: cover;
-
-  display: block;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -203,7 +197,83 @@
 }
 
 /* =========================
-   TABLET
+   VIEW MORE CTA (MATCH HOME CTA)
+========================= */
+
+.view-gallery {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.view-gallery p {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+}
+
+.view-gallery a {
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.view-gallery a:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   PROCESS / INFO BOX (MATCH HOME STATS STYLE)
+========================= */
+
+.process-box {
+  padding: 1.5rem;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.process-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0.6rem 0;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.process-row:last-child {
+  border-bottom: none;
+}
+
+.process-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  opacity: 0.6;
+}
+
+.process-value {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 900px) {
@@ -215,45 +285,30 @@
   .gallery-sidebar {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   .tab-button {
     flex: 1;
     text-align: center;
   }
-
-  .gallery-grid img {
-    height: 240px;
-  }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 600px) {
 
-  .gallery-hero h2 {
-    font-size: 2rem;
+  .gallery-hero-content h2 {
+    font-size: 2.2rem;
   }
 
-  .tab-section {
+  .gallery-section {
     padding: 3rem 6%;
   }
 
-  /* 2 COLUMNS */
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  /* SMALLER IMAGES */
   .gallery-grid img {
     height: 140px;
-  }
-
-  .gallery-description {
-    padding: 1rem;
   }
 }

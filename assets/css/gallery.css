@@ -3,19 +3,114 @@
 ========================= */
 
 .gallery-hero {
-  background-repeat: no-repeat;
-  position: relative;
-  padding-top: 80px; /* space for transparent header */
-}
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-/* =========================
-   HERO OVERLAY
-========================= */
+  background-image: url('/images/bghome.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
 
 .gallery-hero::before {
   content: "";
   position: absolute;
   inset: 0;
+
+  background: rgba(0,0,0,0.5);
+}
+
+.gallery-hero h2 {
+  position: relative;
+  z-index: 1;
+
+  font-family: 'Radley', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+
+  text-align: center;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.tab-section {
+  padding: 4rem 5%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* DESKTOP LAYOUT */
+
+.gallery-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* =========================
+   SIDEBAR (TABS)
+========================= */
+
+.gallery-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 180px;
+}
+
+.tab-button {
+  padding: 0.7rem 1rem;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: #fff;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tab-button:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.tab-button.active {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+
+.gallery-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TAB CONTENT */
+
+.tab-content {
+  display: none;
+  width: 100%;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 /* =========================
@@ -23,45 +118,30 @@
 ========================= */
 
 .gallery-description {
-  text-align: center;
-}
-
-/* =========================
-   TRANSPARENT HEADER (GALLERY)
-========================= */
-
-.site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  background: transparent !important;
-  backdrop-filter: none;
-
-  z-index: 1000;
-}
-
-/* Optional scroll effect */
-.site-header.scrolled {
-  background: rgba(10,10,10,0.7) !important;
-  backdrop-filter: blur(10px);
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-
-.gallery-layout {
-  display: flex;
-}
-
-/* =========================
-   DESCRIPTION BOX
-========================= */
-
-.gallery-description {
+  margin-bottom: 2.5rem;
   padding: 1.5rem;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+
+  max-width: 800px;
+}
+
+.gallery-description h3 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-description p {
+  font-size: 14px;
+  line-height: 1.6;
+
+  opacity: 0.85;
 }
 
 /* =========================
@@ -70,6 +150,55 @@
 
 .gallery-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 16px;
+
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* IMAGES */
+
+.gallery-grid img {
+  width: 100%;
+  height: 300px;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .gallery-layout {
+    flex-direction: column;
+  }
+
+  .gallery-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-button {
+    flex: 1;
+    text-align: center;
+  }
+
+  .gallery-grid img {
+    height: 240px;
+  }
 }
 
 /* =========================
@@ -78,7 +207,11 @@
 
 @media (max-width: 600px) {
 
-  .gallery-section {
+  .gallery-hero h2 {
+    font-size: 2rem;
+  }
+
+  .tab-section {
     padding: 3rem 6%;
   }
 
@@ -91,5 +224,9 @@
   /* SMALLER IMAGES */
   .gallery-grid img {
     height: 140px;
+  }
+
+  .gallery-description {
+    padding: 1rem;
   }
 }

@@ -70,7 +70,7 @@
 }
 
 /* =========================
-   SECTION TONES (NEW)
+   SECTION TONES
 ========================= */
 
 .home-section {
@@ -81,17 +81,14 @@
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* LIGHTER DARK */
 .section-light {
   background: #111;
 }
 
-/* BASE DARK */
 .section-dark {
   background: #0a0a0a;
 }
 
-/* GLASS / DEPTH */
 .section-glass {
   background: rgba(255,255,255,0.02);
   backdrop-filter: blur(10px);
@@ -104,21 +101,18 @@
 .home-text {
   max-width: 700px;
   margin: auto;
-
   text-align: center;
 }
 
 .home-text h2 {
   font-family: 'Radley', serif;
   font-size: 2rem;
-
   margin-bottom: 1rem;
 }
 
 .home-text p {
   font-size: 14px;
   line-height: 1.7;
-
   opacity: 0.85;
 }
 
@@ -131,14 +125,12 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
   gap: 16px;
 }
 
 .home-grid img {
   width: 100%;
   display: block;
-
   object-fit: cover;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -150,7 +142,7 @@
 }
 
 /* =========================
-   VIEW GALLERY CTA (NEW)
+   VIEW GALLERY CTA
 ========================= */
 
 .view-gallery {
@@ -199,11 +191,9 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
   gap: 16px;
 }
 
-/* CARD */
 .process-card {
   padding: 1.5rem;
 
@@ -220,7 +210,6 @@
   background: rgba(255,255,255,0.06);
 }
 
-/* CARD TITLE */
 .process-card h3 {
   font-size: 12px;
   letter-spacing: 2px;
@@ -231,11 +220,9 @@
   opacity: 0.8;
 }
 
-/* CARD TEXT */
 .process-card p {
   font-size: 14px;
   line-height: 1.6;
-
   opacity: 0.85;
 }
 
@@ -247,19 +234,15 @@
   padding: 1.5rem;
 
   border: 1px solid rgba(255,255,255,0.25);
-
   background: rgba(255,255,255,0.02);
   backdrop-filter: blur(10px);
 }
 
-/* STAT ROW */
 .stat-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   padding: 0.6rem 0;
-
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -271,24 +254,92 @@
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   opacity: 0.6;
 }
 
 .stat-value {
   font-size: 14px;
   font-weight: 500;
-
   opacity: 0.9;
 }
 
 /* =========================
-   CTA SECTION
+   PRICING SECTION
+========================= */
+
+.pricing-section {
+  margin-top: 2rem;
+}
+
+.pricing-grid {
+  margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.pricing-card {
+  padding: 2rem;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  text-align: center;
+
+  transition: 0.25s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.06);
+}
+
+.pricing-card h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.pricing-card .price {
+  font-size: 28px;
+  font-weight: 500;
+
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-card ul li {
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+/* FEATURED */
+.pricing-card.featured {
+  border: 1px solid rgba(255,255,255,0.3);
+  transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.08) translateY(-6px);
+}
+
+/* =========================
+   CTA
 ========================= */
 
 .cta {
   margin-top: 4rem;
-
   text-align: center;
 
   background: linear-gradient(
@@ -303,7 +354,6 @@
 .cta h2 {
   font-family: 'Radley', serif;
   font-size: 1.8rem;
-
   margin-bottom: 1.5rem;
 }
 
@@ -330,7 +380,7 @@
 }
 
 /* =========================
-   HEADER BEHAVIOR
+   HEADER
 ========================= */
 
 .site-header {
@@ -349,7 +399,6 @@
 
 .footer {
   padding: 2rem 10%;
-
   text-align: center;
 
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -368,15 +417,26 @@
   .home-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
 }
 
 @media (max-width: 600px) {
-
   .hero-content h1 {
     font-size: 2.2rem;
   }
 
   .home-section {
     padding: 3rem 6%;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
   }
 }
